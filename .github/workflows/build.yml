@@ -1,3 +1,13 @@
+on: [ push, workflow_dispatch ]
+
+env:
+  IMAGE_NAME: ${{ github.repository }}:${{ github.sha }}
+
+jobs:
+  build-and-scan:
+    name: Build and scan image
+    runs-on: ubuntu-latest
+
 steps:
       - name: Checkout repo
         uses: actions/checkout@v2
